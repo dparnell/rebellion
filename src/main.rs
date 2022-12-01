@@ -17,10 +17,10 @@ struct Cli {
     #[command(subcommand)]
     command: Commands,
 
-    #[arg(long)]
+    #[arg(long, env="REBELLION_EMAIL")]
     email: String,
 
-    #[arg(long)]
+    #[arg(long, env="REBELLION_PASSWORD")]
     password: String
 }
 
