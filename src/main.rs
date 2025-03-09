@@ -157,14 +157,14 @@ fn main() {
                                 writer.write(&buf[0..count]).expect("successful write");
                             }
                             progress.finish();
+
+                            // write the manifest
+                            manifest.push(product.clone());
+
+                            let file = File::create(manifest_path).expect("manifest file");
+                            let writer = BufWriter::new(file);
+                            serde_json::to_writer(writer, &manifest).expect("successful write");
                         }
-
-                        // write the manifest
-                        manifest.push(product.clone());
-
-                        let file = File::create(manifest_path).expect("manifest file");
-                        let writer = BufWriter::new(file);
-                        serde_json::to_writer(writer, &manifest).expect("successful write");
                     }
                 }
             }
