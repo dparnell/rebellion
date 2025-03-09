@@ -19,7 +19,7 @@ pub struct Client {
     user_id: Option<u64>
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Medium {
     pub id: u64,
     pub content_type: String,
@@ -28,7 +28,7 @@ pub struct Medium {
     pub file_size: u64
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Product {
     pub id: u64,
     pub product_code: String,
